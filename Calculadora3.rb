@@ -30,7 +30,6 @@ def porcentagem(valor1, valor2)
   (valor1 / 100.to_f) * valor2
 end
 
-
 def boas_vindas
   puts "\n Calculadora"
   puts "Insira o Valor1 Operador Valor2 para ultilização da calculadora"
@@ -116,12 +115,4 @@ def calculadora(conta)
   continuacao(resultado)
 end
 
-
 boas_vindas
-
-
-
-
-
-
-
