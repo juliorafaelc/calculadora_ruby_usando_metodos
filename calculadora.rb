@@ -30,6 +30,7 @@ def porcentagem(valor1, valor2)
   (valor1 / 100.to_f) * valor2
 end
 
+
 def boas_vindas
   puts "\n Calculadora"
   puts "Insira o Valor1 Operador Valor2 para ultilização da calculadora"
@@ -43,13 +44,13 @@ def valida_conta(conta)
     puts "formatação (#{conta}) invalida, separe os valores por espaço"
     return
   end
-
   valida_caracteres(conta[0])
   valida_caracteres(conta[2])
 
   operadores = ["+", "-", "*", "/", "%"]
   unless operadores.include?(conta[1])
     puts "operador (#{conta[1]}), não é valido, ultilize +,-,*,/,%"
+    return
   end
 
   calculadora(conta)
@@ -61,7 +62,7 @@ def valida_caracteres(valor)
   end
 end
 
-def continuacao(resultado)
+def continuacao(resultado, proximo_calc)
   loop do
     puts "Resultado: #{resultado}"
     puts "Digite x para sair do programa"
@@ -94,7 +95,7 @@ def continuacao(resultado)
   end
 end
 
-def calculadora(conta)
+def calculadora(conta, rspec = false)
   valor1 = conta[0].to_f
   operador = conta[1]
   valor2 = conta[2].to_f
@@ -111,8 +112,8 @@ def calculadora(conta)
                 when '%'
                   porcentagem(valor1, valor2)
                 end
-
+  return(resultado) if rspec
   continuacao(resultado)
 end
 
-boas_vindas
+#boas_vindas
